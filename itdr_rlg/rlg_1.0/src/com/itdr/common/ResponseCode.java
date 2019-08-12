@@ -39,7 +39,26 @@ public class ResponseCode<T> {
     }
 
     //成功时候返回状态码和成功获取的数据
+    public static <T> ResponseCode successRS(Integer status, T data) {
+        ResponseCode rs = new ResponseCode();
+        rs.setStatus(status);
+        rs.setData(data);
+        return rs;
+    }
+
+    public static <T> ResponseCode successRS(T data) {
+        ResponseCode rs = new ResponseCode();
+        rs.setStatus(100);
+        rs.setData(data);
+        return rs;
+    }
     //失败时候返回状态码和失败信息
 
+    public static ResponseCode defeatedRS(Integer status, String msg) {
+        ResponseCode rs = new ResponseCode();
+        rs.setStatus(status);
+        rs.setMag(msg);
+        return rs;
+    }
 
 }
